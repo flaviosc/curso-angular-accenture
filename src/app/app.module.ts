@@ -9,6 +9,7 @@ import { ExercicioDiretivasComponent } from './exercicio-diretivas/exercicio-dir
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { ExercicioMemesAgrupadosComponent } from './exercicio-memes-agrupados/exercicio-memes-agrupados.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     FooterComponent,
     ExercicioDataBindingComponent,
     ExercicioContadorComponent,
-    ExercicioDiretivasComponent
+    ExercicioDiretivasComponent,
+    ExercicioMemesAgrupadosComponent
   ],
   imports: [
     BrowserModule,

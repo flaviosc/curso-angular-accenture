@@ -1,0 +1,65 @@
+<!-- Resolução do professor -->
+<ul>
+    <li *ngFor="let memesAgrupados of arrayMemes">
+        {{ memesAgrupados.categoria }}
+
+        <div *ngFor="let meme of memesAgrupados.memes; let par = even">
+            <img [src]="PREFIXO_IMAGEM_URL + meme.imagemURL" *ngIf="par; else blocoPar"/>
+            <ng-template #blocoPar>
+                <h2>PAR</h2>
+            </ng-template>
+        </div>
+    </li>
+</ul>
+
+
+<!-- Resolução criada -->
+
+<!-- <h1>Javascript</h1>
+<div *ngFor="let object of arrayMemes; index as i">
+    <div *ngFor="let meme of object.memes; index as i">
+        <img src="{{ urlBase + object.memes[i].imagemURL }}" alt="" *ngIf="object.categoria === 'Javascript'" >
+    </div>
+</div>
+<hr />
+<h1>Typescript</h1>
+<div *ngFor="let object of arrayMemes; index as i">
+    <div *ngFor="let meme of object.memes; index as i">
+        <img src="{{ urlBase + object.memes[i].imagemURL }}" alt="" *ngIf="object.categoria === 'TypeScript'" >
+    </div>
+</div>
+<hr />
+<h1>Angular</h1>
+<div *ngFor="let object of arrayMemes; index as i">
+    <div *ngFor="let meme of object.memes; index as i">
+        <img src="{{ urlBase + object.memes[i].imagemURL }}" alt="" *ngIf="object.categoria === 'Angular'" >
+    </div>
+</div>
+<hr />
+<h1>Java</h1>
+<div *ngFor="let object of arrayMemes; index as i">
+    <div *ngFor="let meme of object.memes; index as i">
+        <img src="{{ urlBase + object.memes[i].imagemURL }}" alt="" *ngIf="object.categoria === 'Java'" >
+    </div>
+</div>
+<hr />
+<h1>Banco de Dados</h1>
+<div *ngFor="let object of arrayMemes; index as i">
+    <div *ngFor="let meme of object.memes; index as i">
+        <img src="{{ urlBase + object.memes[i].imagemURL }}" alt="" *ngIf="object.categoria === 'Banco de Dados'" >
+    </div>
+</div>
+<hr />
+<h1>HTML</h1>
+<div *ngFor="let object of arrayMemes; index as i">
+    <div *ngFor="let meme of object.memes; index as i">
+        <img src="{{ urlBase + object.memes[i].imagemURL }}" alt="" *ngIf="object.categoria === 'HTML'" >
+    </div>
+</div>
+<hr />
+<h1>Outros</h1>
+<div *ngFor="let object of arrayMemes; index as i">
+    <div *ngFor="let meme of object.memes; index as i">
+        <img src="{{ urlBase + object.memes[i].imagemURL }}" alt="" *ngIf="object.categoria === 'Outros'" >
+    </div>
+</div> -->
