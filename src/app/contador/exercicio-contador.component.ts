@@ -3,10 +3,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-contador',
-  templateUrl: './contador.component.html',
-  styleUrls: ['./contador.component.scss']
+  templateUrl: './exercicio-contador.component.html',
+  styleUrls: ['./exercicio-contador.component.scss']
 })
-export class ContadorComponent implements OnInit {
+export class ExercicioContadorComponent implements OnInit {
 
   @Input() inputValorContador = 0;
   @Output() inputValorContadorChange = new EventEmitter();
