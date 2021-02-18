@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ExercicioMemesAgrupadosComponent } from './exercicio-memes-agrupados/exercicio-memes-agrupados.component';
+import { ExercicioNgclassComponent } from './exercicio-ngclass/exercicio-ngclass.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ExercicioMemesAgrupadosComponent } from './exercicio-memes-agrupados/ex
     ExercicioDataBindingComponent,
     ExercicioContadorComponent,
     ExercicioDiretivasComponent,
-    ExercicioMemesAgrupadosComponent
+    ExercicioMemesAgrupadosComponent,
+    ExercicioNgclassComponent
   ],
   imports: [
     BrowserModule,
