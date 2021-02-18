@@ -1,0 +1,38 @@
+<!-- EXEMPLOS DE EVENT BINDING -->
+<br />
+
+<button (click)="onClickBotaoEmissor($event)">
+    Emitir informação do clique.
+</button>
+
+<br /><br />
+
+<button (click)="onClick()" (mouseenter)="passouMouse()"> Clique em mim!</button>
+<br /><br />
+
+<input type="text" [value]="valorDoInput" (keyup)="digitouAlgo($event)" />
+
+<p>Valor do Input: {{ valorDoInput }}</p>
+
+<hr />
+
+<!-- EXEMPLOS DE PROPERTY BINDING -->
+
+<h2> Palavra: {{ palavra }} </h2>
+<h2> Color: {{ color }} </h2>
+
+<input type="text" [value]="initialValue"/>
+
+<button [disabled]="isDisabled">Clique em mim!</button><br />
+
+<p [attr.aria-label]="isDisabled ? 'Botão desabilitado' : accessibilityText">
+    Um texto qualquer</p><br />
+
+<img [src]="imageURL" alt="" style="width: 200px; height: 100px;"/>
+
+<!-- EXERCÍCIO CONTADOR -->
+
+<app-contador 
+  [inputValorContador]="valorDefaultContador"
+  (contadorAlterado)="onContadorAlterado($event)"
+></app-contador>
