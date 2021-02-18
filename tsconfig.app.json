@@ -8,7 +8,7 @@
   "files": [
     "src/main.ts",
     "src/polyfills.ts",
-    "src/app/exercicio-memes-agrupados/exercicio-memes-agrupados.constants.ts"
+    "src/app/shared/components/exercicio-memes-agrupados/exercicio-memes-agrupados.constants.ts"
   ],
   "include": [
     "src/**/*.d.ts"
