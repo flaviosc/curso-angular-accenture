@@ -46,8 +46,4 @@ export class ExercicioDataBindingComponent implements OnInit {
     console.log('Devo emitir informações para o componente pai');
     this.clicado.emit($event);
   }
-
-  onContadorAlterado($event: any) {
-    console.log('CONTADOR ALTERADO: ', $event);
-  } 
 }

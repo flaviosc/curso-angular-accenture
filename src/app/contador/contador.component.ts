@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ContadorComponent implements OnInit {
 
   @Input() inputValorContador = 0;
-  @Output() contadorAlterado = new EventEmitter();
+  @Output() inputValorContadorChange = new EventEmitter();
 
   constructor() { }
 
@@ -18,12 +18,12 @@ export class ContadorComponent implements OnInit {
 
   incrementar() {
     this.inputValorContador++;
-    this.contadorAlterado.emit(this.inputValorContador);
+    this.inputValorContadorChange.emit(this.inputValorContador);
   }
 
   decrementar() {
     this.inputValorContador--;
-    this.contadorAlterado.emit(this.inputValorContador);
+    this.inputValorContadorChange.emit(this.inputValorContador);
   }
 
   // onChangeContador($event: any) {

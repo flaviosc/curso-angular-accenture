@@ -33,6 +33,7 @@
 <!-- EXERCÍCIO CONTADOR -->
 
 <app-contador 
-  [inputValorContador]="valorDefaultContador"
-  (contadorAlterado)="onContadorAlterado($event)"
+  [(inputValorContador)]="valorDefaultContador"
 ></app-contador>
+
+<p>Valor no componente pai: {{ valorDefaultContador }}</p>
