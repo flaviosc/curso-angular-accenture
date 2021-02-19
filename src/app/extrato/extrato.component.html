@@ -1,29 +1,45 @@
 <div class="container text-center p-5">
-    <table class="table table-hover ">
-        <tr>
-            <th>
-                ID
-            </th>
-            <th>
-                Data
-            </th>
-            <th>
-                Descrição
-            </th>
-            <th>
-                Valor
-            </th>
-            <th>
-                Categoria
-            </th>
-        </tr>
-    
-        <tr *ngFor="let transacao of transacoes">
-            <td>{{ transacao.id }}</td>
-            <td>{{ transacao.data | date}}</td>
-            <td>{{ transacao.descricao }}</td>
-            <td>{{ transacao.valor | currency:'BRL'}}</td>
-            <td>{{ transacao.categoria }}</td>
-        </tr>
-    </table>
+
+    <div class="spinner-border" role="status" *ngIf="estaCarregando">
+        <span class="sr-only">Loading...</span>
+    </div>
+
+    <div *ngIf="erroNoCarregamento">
+        <h2>Deu erro :(</h2>
+        <button (click)="carregarExtrato()">Tentar novamente</button>
+    </div>
+
+    <div>
+        <button (click)="paginaAnterior()" class="btn btn-primary mr-2 mb-2" [disabled]="pagina === 1"> Página anterior</button>
+        <button (click)="proximaPagina()" class="btn btn-primary mb-2"> Próxima página</button>
+
+
+        <table class="table table-hover" *ngIf="!estaCarregando && !erroNoCarregamento">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Data
+                </th>
+                <th>
+                    Descrição
+                </th>
+                <th>
+                    Valor
+                </th>
+                <th>
+                    Categoria
+                </th>
+            </tr>
+        
+            <tr *ngFor="let transacao of transacoes">
+                <td>{{ transacao.id }}</td>
+                <td>{{ transacao.data | date}}</td>
+                <td>{{ transacao.descricao }}</td>
+                <td>{{ transacao.valor | currency:'BRL'}}</td>
+                <td>{{ transacao.categoria }}</td>
+            </tr>
+        </table>
+    </div>
 </div>
