@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { DetalhesContatoComponent } from './detalhes-contato/detalhes-contato.component';
 import { ExtratoComponent } from './extrato/extrato.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.component';
+import { ExercicioContatosComponent } from './shared/components/exercicio-contatos/exercicio-contatos.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'extrato', component: ExtratoComponent },
+  { path: 'contatos', component: ExercicioContatosComponent },
+  { path: 'contatos/:id', component: DetalhesContatoComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', component: NaoEncontradoComponent},
 ];

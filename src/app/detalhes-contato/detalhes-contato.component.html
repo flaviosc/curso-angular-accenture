@@ -1,0 +1,54 @@
+<div class="container text-center">
+    <br>
+    
+    <div class="spinner-border" role="status" *ngIf="detalhesContatoCarregando">
+        <span class="sr-only">Loading...</span>
+    </div>
+
+    <br><br>
+
+    <div *ngIf="erroNoCarregamento">
+        <h2>Deu erro :(</h2>
+        <button (click)="carregarDetalhesContato()">Tentar novamente</button>
+    </div>
+
+    <table class="table" *ngIf="!detalhesContatoCarregando && !erroNoCarregamento">
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                CPF
+            </th>
+            <th>
+                Banco
+            </th>
+            <th>
+                Agência
+            </th>
+            <th>
+                Conta Corrente
+            </th>
+        </tr>
+
+        <tr> 
+            <td>
+                {{ detalhesContato.nome }}
+            </td>
+            <td>
+                {{ detalhesContato.cpf }}
+            </td>
+            <td>
+                {{ detalhesContato.banco }}
+            </td>
+            <td>
+                {{ detalhesContato.ag }}
+            </td>
+            <td>
+                {{ detalhesContato.cc }}
+            </td>
+        </tr>
+    </table>
+
+    <button class="btn btn-primary"(click)="voltar()"> Voltar </button>
+</div>
