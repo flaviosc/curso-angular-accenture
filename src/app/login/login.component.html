@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="text-center">
+
+    <p>E-mail invalido: {{ form.controls.email?.invalid }}</p>
+    <p>E-mail está tocado: {{ form.controls.email?.touched }}</p>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-signin pt-5">
+  
+      <div class="p-2">
+        <input 
+          type="email" 
+          class="form-control" 
+          placeholder="E-mail" 
+          name="email" 
+          [(ngModel)]="email" required email
+          [class.is-invalid]="exibeErro('email', form)" #emailInput>
+          <p *ngIf="exibeErro('email', form)" class="invalid-feedback">E-mail inválido!</p>
+      </div>
+  
+      <div class="p-2">
+        <input type="password" 
+        class="form-control" 
+        placeholder="Password" 
+        name="password" 
+        [(ngModel)]="password" required
+        [class.is-invalid]="exibeErro('password', form)" #passwordInput>
+        <p *ngIf="exibeErro('password', form)" class="invalid-feedback">Senha inválida!</p>
+      </div>
+  
+      <div class="p-2">
+        <button class="btn btn-lg btn-primary btn-block" type="submit"> Entrar</button>
+      </div>
+  
+    </form>
+  
+  </div> 
