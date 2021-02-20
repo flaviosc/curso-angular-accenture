@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { LoginService } from './login.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,10 +13,12 @@ export class LoginComponent {
   @ViewChild('emailInput') emailInput: ElementRef | undefined;
   @ViewChild('passwordInput') passwordInput: ElementRef | undefined;
 
-  email: string = '';
-  password: string = '';
+  email = '';
+  password = '';
 
-  constructor() { }
+  constructor(
+    private loginService: LoginService,
+  ) { }
 
   onSubmit(form: NgForm) {    
     if(!form.valid) { 
@@ -32,13 +36,24 @@ export class LoginComponent {
       return;
     }
 
-    console.log(this.email);
-    console.log(this.password);
+    this.login();
   }
 
   exibeErro(nomeControle: string, form: NgForm) {
     if(!form.controls[nomeControle]) { return false; }
     return form.controls[nomeControle]?.invalid && form.controls[nomeControle]?.touched;
+  }
+
+  login() {
+    this.loginService.logar(this.email, this.password)
+      .subscribe(
+        response => {
+          console.log('Logou!');
+        }, 
+        error => {
+          console.log('Não logou');
+        }
+      )
   }
 
 }
