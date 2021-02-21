@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize, take } from 'rxjs/operators';
 
-import { Contato } from '../shared/components/exercicio-contatos/exercicio-contatos.interface';
-import { ExercicioContatosService } from '../shared/components/exercicio-contatos/exercicio-contatos.service';
+import { Contato } from '../listar-contatos/contato.interface';
+import { ListarContatosService } from '../listar-contatos/listar-contatos.service';
+
 
 @Component({
   selector: 'app-detalhes-contato',
@@ -19,7 +20,7 @@ export class DetalhesContatoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private contatosService: ExercicioContatosService,
+    private contatosService: ListarContatosService,
     private router: Router,
   ) { }
 

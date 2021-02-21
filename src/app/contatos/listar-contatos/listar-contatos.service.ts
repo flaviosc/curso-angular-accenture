@@ -2,12 +2,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-import { Contato } from './exercicio-contatos.interface';
+import { Contato } from './contato.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExercicioContatosService {
+export class ListarContatosService {
 
   API_URL = environment.API_URL;
 

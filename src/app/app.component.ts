@@ -10,7 +10,7 @@ export class AppComponent {
 
   inputPalavra = 'Carro';
   favoriteColor = 'green';
-  headerTitle = 'Início';
+  headerTitle = 'Sistema';
 
   constructor() {
     setTimeout(() => {

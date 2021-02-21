@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { finalize, take } from 'rxjs/operators';
 
-import { Contato } from './exercicio-contatos.interface';
-import { ExercicioContatosService } from './exercicio-contatos.service';
+import { Contato } from './contato.interface';
+import { ListarContatosService } from './listar-contatos.service';
+
+;
 
 @Component({
   selector: 'app-exercicio-contatos',
-  templateUrl: './exercicio-contatos.component.html',
-  styleUrls: ['./exercicio-contatos.component.scss']
+  templateUrl: './listar-contatos.component.html',
+  styleUrls: ['./listar-contatos.component.scss']
 })
-export class ExercicioContatosComponent implements OnInit {
+export class ListarContatosComponent implements OnInit {
 
   contatos: Array<Contato> = [];
 
@@ -18,7 +20,7 @@ export class ExercicioContatosComponent implements OnInit {
   erroNoCarregamento: boolean = false;
 
   constructor(
-    private contatosService: ExercicioContatosService,
+    private contatosService: ListarContatosService,
     private router: Router,
   ) { }
 

@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 
 import { LoginService } from './login.service';
@@ -22,6 +23,7 @@ export class LoginComponent {
 
   constructor(
     private loginService: LoginService,
+    private router: Router
   ) { }
 
   onSubmit(form: NgForm) {   
@@ -58,14 +60,14 @@ export class LoginComponent {
         finalize(() => this.estaCarregando = false)
       )
       .subscribe(
-        response => {
-          console.log('Logou!');
-        }, 
-        error => {
-          this.erroNoLogin = true;
-          console.log('Não logou');
-        }
+        response => this.router.navigate(['home']),
+        error => this.onErrorLogin()
       )
+  }
+
+  onErrorLogin() {
+    this.erroNoLogin = true;
+    console.log('Não logou');
   }
 
 }
