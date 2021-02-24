@@ -1,31 +1,27 @@
-import { AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnChanges, OnInit, AfterViewInit, OnDestroy {
+export class HeaderComponent implements OnInit {
 
   @Input() title = '';
 
-  constructor() { 
+  constructor(
+    private authService: AuthService
+  ) { 
     console.log('CONSTRUTOR ');
-  }
-
-  ngOnChanges(): void {
-    console.log('ngOnChanges');
   }
 
   ngOnInit(): void {
     console.log('ngOnInit');
   }
 
-  ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
-  }
-
-  ngOnDestroy(): void {
-    console.log('Fui destruído')
+  logout() {
+    this.authService.logout();
   }
 }
