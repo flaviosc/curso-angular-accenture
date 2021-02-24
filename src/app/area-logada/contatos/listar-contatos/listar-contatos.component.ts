@@ -5,8 +5,6 @@ import { finalize, take } from 'rxjs/operators';
 import { Contato } from './contato.interface';
 import { ListarContatosService } from './listar-contatos.service';
 
-;
-
 @Component({
   selector: 'app-exercicio-contatos',
   templateUrl: './listar-contatos.component.html',

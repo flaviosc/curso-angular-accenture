@@ -6,17 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'primeiro-projeto';
 
-  inputPalavra = 'Carro';
-  favoriteColor = 'green';
-  headerTitle = 'Sistema';
-
-  constructor() {
-    setTimeout(() => {
-      this.headerTitle = 'Seja bem-vindo =)';
-    }, 5000);
-  }
+  constructor() { }
 
   eventoRecebido($event: any) {
     console.log('AppComponent: EVENTO RECEBIDO', $event);

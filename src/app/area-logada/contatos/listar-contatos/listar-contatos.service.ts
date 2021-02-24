@@ -20,7 +20,9 @@ export class ListarContatosService {
   constructor(private http: HttpClient) { }
 
   getContatos() {
-    return this.http.get<Contato[]>(`${this.API_URL}/contatos`);
+    const retorno = this.http.get<Contato[]>(`${this.API_URL}/contatos`);
+    console.log(retorno);
+    return retorno;
   }
 
   getDetalhesContato(idContato: any) {
