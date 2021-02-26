@@ -9,7 +9,7 @@
 
     <div *ngIf="erroNoCarregamento">
         <h2>Deu erro :(</h2>
-        <button (click)="carregarDetalhesContato()">Tentar novamente</button>
+        <button (click)="carregarDetalhesContato()" class="btn btn-primary">Tentar novamente</button>
     </div>
 
     <table class="table" *ngIf="!detalhesContatoCarregando && !erroNoCarregamento">

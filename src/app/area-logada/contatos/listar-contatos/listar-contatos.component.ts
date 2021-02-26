@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { finalize, take } from 'rxjs/operators';
 
-import { Contato } from './contato.interface';
-import { ListarContatosService } from './listar-contatos.service';
+import { Contato } from '../contato.interface';
+import { ContatosService } from '../contatos.service';
 
 @Component({
   selector: 'app-exercicio-contatos',
@@ -19,7 +19,7 @@ export class ListarContatosComponent implements OnInit {
   erroNoCarregamento: boolean = false;
 
   constructor(
-    private contatosService: ListarContatosService,
+    private contatosService: ContatosService,
     private router: Router,
     private toastr: ToastrService
   ) { }
@@ -62,8 +62,13 @@ export class ListarContatosComponent implements OnInit {
   }
   onErrorDeletarContato(error: any): void {
   }
+
   onSuccessDeletarContato(idContato: number): void {
     this.toastr.success('Sucesso!', 'Contato deletado com sucesso');
     this.contatos = this.contatos.filter(contatos => contatos.id !== idContato)
+  }
+
+  novoContato() {
+    this.router.navigate(['contatos/novo']);
   }
 }

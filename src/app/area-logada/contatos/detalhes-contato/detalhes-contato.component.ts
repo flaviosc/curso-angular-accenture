@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize, take } from 'rxjs/operators';
 
-import { Contato } from '../listar-contatos/contato.interface';
-import { ListarContatosService } from '../listar-contatos/listar-contatos.service';
+import { Contato } from '../contato.interface';
+import { ContatosService } from '../contatos.service';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class DetalhesContatoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private contatosService: ListarContatosService,
+    private contatosService: ContatosService,
     private router: Router,
   ) { }
 

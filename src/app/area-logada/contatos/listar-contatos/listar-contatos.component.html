@@ -12,6 +12,8 @@
         <button (click)="carregarContatos()">Tentar novamente</button>
     </div>
 
+    <button class="btn btn-primary m-1 mb-2" (click)="novoContato()">Novo contato</button>
+
     <table class="table" *ngIf="!contatosCarregando && !erroNoCarregamento">
         <tr>
             <th>

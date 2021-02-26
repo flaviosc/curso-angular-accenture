@@ -7,7 +7,7 @@ import { Contato } from './contato.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class ListarContatosService {
+export class ContatosService {
 
   API_URL = environment.API_URL;
 
