@@ -4,8 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { ContatosRoutingModule } from './contatos-routing.module';
 import { DetalhesContatoComponent } from './detalhes-contato/detalhes-contato.component';
+import { EditarContatoComponent } from './editar-contato/editar-contato.component';
 import { ListarContatosComponent } from './listar-contatos/listar-contatos.component';
-import { NovoContatoComponent } from './novo-contato/novo-contato.component';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { NovoContatoComponent } from './novo-contato/novo-contato.component';
   declarations: [
     ListarContatosComponent,
     DetalhesContatoComponent,
-    NovoContatoComponent
+    EditarContatoComponent
   ],
 })
 export class ContatosModule { }

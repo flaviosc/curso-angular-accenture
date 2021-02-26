@@ -53,6 +53,10 @@ export class ListarContatosComponent implements OnInit {
     this.router.navigate([`contatos/${idContato}`]);
   }
 
+  irParaEditar(idContato: number) {
+    this.router.navigate([`contatos/${idContato}/editar`]);
+  }
+
   deletarContato(idContato: number) {
     this.contatosService.deleteContato(idContato)
       .subscribe(

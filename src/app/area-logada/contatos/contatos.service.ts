@@ -40,7 +40,7 @@ export class ContatosService {
   }
 
   updateContato(idContato: any, contato: Contato) {
-    return this.http.put<Contato[]>(`${this.API_URL}/contatos/` + idContato, contato);
+    return this.http.put<Contato>(`${this.API_URL}/contatos/` + idContato, contato);
   }
 
   deleteContato(idContato: any) {

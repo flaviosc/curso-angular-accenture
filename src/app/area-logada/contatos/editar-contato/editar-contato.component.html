@@ -1,6 +1,12 @@
 <div class="container pt-5">
 
-    <form [formGroup]="contatoForm">
+  <div class="text-center">
+    <div class="spinner-border" role="status" *ngIf="estaCarregando">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <form [formGroup]="contatoForm" *ngIf="!estaCarregando && !erroNoCarregamento">
       <div class="form-group">
         <label for="nome">Nome</label>
         <input
@@ -56,8 +62,10 @@
           [class.is-invalid]="exibeErro('cc')">
       </div>
 
-      <button class="btn btn-primary" (click)="onSubmit()">Criar contato</button>
+      <button class="btn btn-primary" (click)="onSubmit()">
+        {{ estaEditando() ? 'Salvar contato' : 'Editar contato' }}
+      </button>
   
-    </form>
+  </form>
   
   </div> 
