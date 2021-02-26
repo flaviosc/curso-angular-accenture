@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.component';
 import { EstaLogadoGuard } from './shared/guards/esta-logado/esta-logado.guard';
 import { NaoEstaLogadoGuard } from './shared/guards/nao-esta-logado/nao-esta-logado.guard';
 
@@ -17,7 +16,7 @@ const routes: Routes = [
     canActivate: [NaoEstaLogadoGuard]
   },
   { path: '', redirectTo: 'area-logada', pathMatch: 'full'},
-  { path: '**', component: NaoEncontradoComponent},
+  { path: '**', redirectTo: 'login'},
 ];
 
 @NgModule({
