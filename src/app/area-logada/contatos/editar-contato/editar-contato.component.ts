@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { finalize, take } from 'rxjs/operators';
@@ -47,6 +47,7 @@ export class EditarContatoComponent implements OnInit {
       banco: ['', Validators.required],
     });
     
+    this.estaCarregando = false;
     // this.contatoForm = new FormGroup({
     //   nome: new FormControl(),
     //   banco: new FormControl()
@@ -77,7 +78,7 @@ export class EditarContatoComponent implements OnInit {
     )
   }
 
-  estaEditando = () => Boolean(this.estaEditando)
+  estaEditando = () => Boolean(this.idContato)
 
   exibeErro(nomeControle: string) {
     if (!this.contatoForm.get(nomeControle)) {
@@ -87,16 +88,21 @@ export class EditarContatoComponent implements OnInit {
     return this.contatoForm.get(nomeControle)?.invalid && this.contatoForm.get(nomeControle)?.touched;
   }
 
-  validateAllFormFields() {
-    Object.keys(this.contatoForm.controls).forEach(field => {
+  validateAllFormFields(form: FormGroup) {
+    Object.keys(form.controls).forEach(field => {
       const control = this.contatoForm.get(field);
-      control?.markAsTouched();
-    })
+      if(control instanceof FormControl) {
+        control?.markAsTouched();
+      } else if(control instanceof FormGroup){
+        this.validateAllFormFields(control)
+      }
+    });
+
   }
 
   onSubmit() {
     if(this.contatoForm.invalid) {
-      this.validateAllFormFields();
+      this.validateAllFormFields(this.contatoForm);
     }
 
     // if(this.contatoForm.invalid) { 
